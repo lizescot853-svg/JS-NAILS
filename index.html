@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS NAILS - Diseño de Uñas Profesional</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Página de Bienvenida -->
+    <div id="welcome-page" class="page active">
+        <div class="welcome-container">
+            <div class="welcome-content">
+                <h1 class="welcome-title">JS NAILS</h1>
+                <p class="welcome-subtitle">Diseño de Uñas Profesional</p>
+                <p class="welcome-description">Transforma tus uñas con nuestros servicios especializados en acrílico, gel semipermanente y decoraciones exclusivas.</p>
+                <button class="btn-primary" onclick="goToQuote()">Ir al Cotizador</button>
+            </div>
+            <div class="welcome-footer">
+                <p>Ubicación: Calle Ciudad Cuauhtémoc #87, Col. Revolución</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Página de Cotizador -->
+    <div id="quote-page" class="page">
+        <div class="quote-container">
+            <div class="quote-header">
+                <button class="btn-back" onclick="goToWelcome()">← Volver</button>
+                <h2>Cotizador de Servicios</h2>
+            </div>
+
+            <div class="quote-content">
+                <!-- Selección de Servicio Base -->
+                <div class="section">
+                    <h3>1. Selecciona tu Servicio Base</h3>
+                    <div class="options-grid">
+                        <label class="option-card">
+                            <input type="radio" name="service" value="acrilico" onchange="updateQuote()">
+                            <span class="option-title">Acrílico</span>
+                            <span class="option-price">Desde $250</span>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="service" value="gel" onchange="updateQuote()">
+                            <span class="option-title">Gel Semipermanente</span>
+                            <span class="option-price">$150</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Tamaños Acrílico -->
+                <div class="section" id="acrilico-sizes" style="display:none;">
+                    <h3>2. Selecciona el Tamaño (Acrílico)</h3>
+                    <div class="options-grid">
+                        <label class="option-card"><input type="radio" name="size" value="1" onchange="updateQuote()"> <span>Tamaño 1</span> <span>$250</span></label>
+                        <label class="option-card"><input type="radio" name="size" value="2" onchange="updateQuote()"> <span>Tamaño 2</span> <span>$300</span></label>
+                        <label class="option-card"><input type="radio" name="size" value="3" onchange="updateQuote()"> <span>Tamaño 3</span> <span>$350</span></label>
+                        <label class="option-card"><input type="radio" name="size" value="4" onchange="updateQuote()"> <span>Tamaño 4</span> <span>$400</span></label>
+                        <label class="option-card"><input type="radio" name="size" value="5" onchange="updateQuote()"> <span>Tamaño 5</span> <span>$450</span></label>
+                        <label class="option-card"><input type="radio" name="size" value="6" onchange="updateQuote()"> <span>Tamaño 6</span> <span>$500</span></label>
+                    </div>
+                </div>
+
+                <!-- Efectos y Técnicas -->
+                <div class="section">
+                    <h3>2. Selecciona Efectos y Técnicas (Opcional)</h3>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="effect" value="Espejo" data-price="10" onchange="updateQuote()">
+                            <span>Espejo</span> <span>+$10/uña</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="effect" value="Aurora" data-price="10" onchange="updateQuote()">
+                            <span>Aurora</span> <span>+$10/uña</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="effect" value="Azúcar" data-price="10" onchange="updateQuote()">
+                            <span>Azúcar</span> <span>+$10/uña</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="effect" value="Suéter" data-price="15" onchange="updateQuote()">
+                            <span>Suéter</span> <span>+$15/uña</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="effect" value="Glitter" data-price="10" onchange="updateQuote()">
+                            <span>Glitter</span> <span>+$10/uña</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="effect" value="Blooming" data-price="15" onchange="updateQuote()">
+                            <span>Blooming</span> <span>+$15/uña</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="effect" value="Ojo de gato" data-price="10" onchange="updateQuote()">
+                            <span>Ojo de gato</span> <span>+$10/uña</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="effect" value="Relieve" data-price="15" onchange="updateQuote()">
+                            <span>Relieve</span> <span>+$15/uña</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="effect" value="3D" data-price="20" onchange="updateQuote()">
+                            <span>3D</span> <span>+$20/uña</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="effect" value="Frances" data-price="10" onchange="updateQuote()">
+                            <span>Francés</span> <span>+$10/uña</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="effect" value="Baby boomer" data-price="15" onchange="updateQuote()">
+                            <span>Baby Boomer</span> <span>+$15/uña</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="effect" value="Mármol" data-price="10" onchange="updateQuote()">
+                            <span>Efecto Mármol</span> <span>+$10/uña</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Decoraciones -->
+                <div class="section">
+                    <h3>3. Decoraciones (Opcional)</h3>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="decoration" value="Cristales CH" data-price="10" onchange="updateQuote()">
+                            <span>Cristales CH</span> <span>+$10</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="decoration" value="Cristales M" data-price="15" onchange="updateQuote()">
+                            <span>Cristales M</span> <span>+$15</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="decoration" value="Cristales G" data-price="20" onchange="updateQuote()">
+                            <span>Cristales G</span> <span>+$20</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Tonos extra -->
+                <div class="section">
+                    <h3>4. Tonos Extra (Opcional)</h3>
+                    <label class="input-group">
+                        <span>¿Deseas tonos extra?</span>
+                        <input type="number" id="extra-tones" min="0" max="10" value="0" onchange="updateQuote()">
+                        <small>$5 cada uno</small>
+                    </label>
+                </div>
+
+                <!-- Resumen de Cotización -->
+                <div class="quote-summary">
+                    <h3>Resumen de tu Cotización</h3>
+                    <div class="summary-items">
+                        <div class="summary-item">
+                            <span>Servicio Base:</span>
+                            <span id="summary-base">-</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Efectos y Técnicas:</span>
+                            <span id="summary-effects">$0</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Decoraciones:</span>
+                            <span id="summary-decorations">$0</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Tonos Extra:</span>
+                            <span id="summary-tones">$0</span>
+                        </div>
+                        <div class="summary-divider"></div>
+                        <div class="summary-item total">
+                            <span>TOTAL:</span>
+                            <span id="summary-total">$0</span>
+                        </div>
+                    </div>
+                    <p class="note">* Se requiere anticipo en toda aplicación</p>
+                </div>
+            </div>
+
+            <!-- Información de Contacto y Pagos -->
+            <div class="contact-section">
+                <h3>📍 Ubicación</h3>
+                <p>Calle Ciudad Cuauhtémoc #87, Col. Revolución</p>
+                
+                <h3>💳 Métodos de Pago</h3>
+                <div class="payment-methods">
+                    <div class="payment-card">
+                        <h4>Transferencia Bancaria</h4>
+                        <p><strong>Titular:</strong> Sayda González</p>
+                        <p><strong>CLABE:</strong> 638180000160250626</p>
+                        <p><strong>Tarjeta:</strong> 5101 2541 1263 6089</p>
+                    </div>
+                    <div class="payment-card">
+                        <h4>Efectivo</h4>
+                        <p>Disponible en nuestras instalaciones</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
